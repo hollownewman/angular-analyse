@@ -1,4 +1,4 @@
-var bootApp = angular.module('bootApp',['ui.router']);
+var bootApp = angular.module('bootApp',['ui.router','loginModule']);
 
 bootApp.config(function($stateProvider,$urlRouterProvider){
   $urlRouterProvider.otherwise('/index');
