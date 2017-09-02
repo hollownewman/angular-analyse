@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+var jshint = require('gulp-jshint');
 
 var www ='www/',
     srcHtml = 'index.html',
@@ -19,8 +20,11 @@ gulp.task('html',function(){
 
 gulp.task('scripts',function(){
   return gulp.src(srcJs)
+        .pipe(jshint())
+        .pipe(jshint.reporter(''))
         .pipe(gulp.dest(dstJs))
         .pipe(connect.reload())
+        
 })
 
 gulp.task('cop',function(){

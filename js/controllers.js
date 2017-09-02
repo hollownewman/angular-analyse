@@ -1,17 +1,19 @@
 var loginModule = angular.module('loginModule',[]);
 var log = [];
 loginModule.controller('iformController',function($scope,$http){
-  // var values = {name:'misko',gender:'male'};
-  // angular.forEach(values,function(value,key){
-  //   console.log(value+'z');
-  //   console.log(this==log);
-  //   this.push(key+':'+value);
-  //   $scope.dd = log.join(',');
-  // },log);
-  
+
   $scope.submit = function(){
-    console.log($http);
-    console.log($scope.user);
-    alert("aaa");
-  }
+    console.log($scope);
+    $http({
+      method :'post',
+      url:'http://jjh.console.10039.cc/user/getLoginStatus',
+      data:$scope.user
+    }).success(function(data){
+    })
+  };
+});
+
+loginModule.controller('BookListCtrl',function($scope,$http){
+  $scope.myData =[{name:'zhangsan',age:50},{name:'lisi',age:30},{name:'wangwu',age:40}];
+  $scope.gridOptions = {data:'myData'};
 });
