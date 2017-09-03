@@ -2,15 +2,15 @@ var loginModule = angular.module('loginModule',[]);
 var log = [];
 loginModule.controller('iformController',function($scope,$http){
 
-  $scope.submit = function(){
-    console.log($scope);
-    $http({
-      method :'post',
-      url:'http://jjh.console.10039.cc/user/getLoginStatus',
-      data:$scope.user
-    }).success(function(data){
-    })
-  };
+  // $scope.submit = function(){
+  //   console.log($scope);
+  //   $http({
+  //     method :'post',
+  //     url:'http://jjh.console.10039.cc/user/getLoginStatus',
+  //     data:$scope.user
+  //   }).success(function(data){
+  //   });
+  // };
 });
 
 loginModule.controller('BookListCtrl',function($scope,$http){

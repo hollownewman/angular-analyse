@@ -1,6 +1,10 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 var jshint = require('gulp-jshint');
+var babel = require('gulp-babel');
+var es2015 = require("babel-preset-es2015");
+
+// var sass = require('gulp-sass');
 
 var www ='www/',
     srcHtml = 'index.html',
@@ -8,7 +12,7 @@ var www ='www/',
     dstTpl = 'www/tpls',
     srcFw='framework/**',
     dstFw='www/framework';
-    srcJs='js/**',
+    srcJs='js/*.js',
     dstJs='www/js';
     srcCss='css/',
     dstCss='www/css';
@@ -18,8 +22,16 @@ gulp.task('html',function(){
         .pipe(connect.reload())
 });
 
+// gulp.task('css',function(){
+//   return gulp.src(srcCss)
+//         .piep(sass())
+//         .pipe(gulp.dest(dstCss))
+//         .pipe(connect.reload())
+// })
+
 gulp.task('scripts',function(){
   return gulp.src(srcJs)
+        .pipe(babel({presets:['es2015']}))
         .pipe(jshint())
         .pipe(jshint.reporter(''))
         .pipe(gulp.dest(dstJs))
